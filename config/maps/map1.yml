@@ -1,0 +1,11 @@
+initial_position: [1,1]
+flag_position: [20,20]
+width: 30
+height: 30
+obstacles:
+  - position: [2,2]
+    image_url: algo
+  - position: [3,3]
+    image_url: otro
+
+
