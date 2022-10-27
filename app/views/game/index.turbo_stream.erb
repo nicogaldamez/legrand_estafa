@@ -1,0 +1,8 @@
+<%= turbo_stream.update "map" do %>
+  <%= render "map", game: @game %>
+<% end %>
+
+<%= turbo_stream.update "numbers" do %>
+  <%= render "numbers", game: @game %>
+<% end %>
+

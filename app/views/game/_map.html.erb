@@ -1,0 +1,10 @@
+<div class="flex-col w-full">
+  <% game.map.height.times do |row| %>
+    <div class="flex flex-row">
+      <% game.map.width.times do |col| %>
+        <%= cell(row, col, game) %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+

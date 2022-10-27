@@ -1,0 +1,32 @@
+<div class="mb-1 flex flex-row justify-between w-full">
+  <div>
+    <%= turbo_frame_tag 'form' do %>
+      <%= form_with url: game_path do |form| %>
+        <div class="flex flex-row space-x-3">
+          <div>
+            <%= form.label :map,
+              'Mapa',
+              class: 'block text-gray-700 text-sm font-bold mb-2' %>
+            <%= form.select :map, [1, 2, 3, 4], {}, id: 'map_select' %>
+          </div>
+
+          <div>
+            <%= form.label :team,
+              'Equipo',
+              class: 'block text-gray-700 text-sm font-bold mb-2' %>
+            <%= form.select :team, [1, 2, 3, 4] %>
+          </div>
+
+          <div>
+            <%= form.submit 'Calcular', class: 'mt-7 bg-indigo-600 text-white text-sm leading-4 font-medium py-3 px-3 rounded-sm cursor-pointer' %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div id="numbers"> </div>
+
+</div>
+
+<div id="map"> </div>

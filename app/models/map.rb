@@ -1,5 +1,5 @@
 class Map
-  attr_reader :initial_position
+  attr_reader :initial_position, :flag_position, :width, :height
 
   def initialize(map_number: )
     map_config = YAML.load_file("config/maps/map#{map_number}.yml")
@@ -11,32 +11,35 @@ class Map
     puts @obstacles
   end
 
-  def move(x:, y:)
-    if [x,y] == @flag_position
+  def move(row:, col:)
+    if [row,col] == @flag_position
       return :win
     end
 
-    if x < 0 || y < 0 || x > @width || y > @height
+    if row < 0 || col < 0 || row == @width || col == @height
       return :out_of_limit
     end
 
-    if @obstacles.dig(x, y)
+    if there_is_an_obstacle?(row: row, col: col)
       return :dead
     end
 
     return :safe
   end
 
+  def there_is_an_obstacle?(row:, col:)
+    @obstacles.dig(row, col)
+  end
 
   private
 
   def map_obstacles(raw_obstacles)
     raw_obstacles.each_with_object({}) do |obstacle, hash|
-      x_position = obstacle['position'][0]
-      y_position = obstacle['position'][1]
+      row_position = obstacle[0]
+      col_position = obstacle[1]
 
-      hash[x_position] ||= {}
-      hash[x_position][y_position] = obstacle['image_url']
+      hash[row_position] ||= {}
+      hash[row_position][col_position] = true
 
       hash
     end

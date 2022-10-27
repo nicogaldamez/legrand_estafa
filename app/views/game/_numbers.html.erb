@@ -1,0 +1,42 @@
+  <div class="flex flex-row space-x-24">
+    <div>
+      <h2 class="text-xl font-medium">
+        Movimientos
+      </h2>
+      <h3 class="text-center text-2xl font-extrabold text-sky-600">
+        <%= game.movements %>
+      </h3>
+    </div>
+
+    <div>
+      <h2 class="text-xl font-medium">
+        Muertes
+      </h2>
+      <h3 class="text-center text-2xl font-extrabold text-red-400">
+        <%= game.killed %>
+      </h3>
+    </div>
+
+    <div>
+      <h2 class="text-xl font-medium">
+        Encontró Bandera
+      </h2>
+      <h3 class="text-center text-2xl font-extrabold ">
+        <% if game.found_flag %>
+          <%= content_tag :span, 'SI', class: 'text-emerald-400' %>
+        <% else %>
+          <%= content_tag :span, 'NO', class: 'text-red-400' %>
+        <% end %>
+      </h3>
+    </div>
+
+    <div>
+      <h2 class="text-xl font-medium">
+        Tiempo
+      </h2>
+      <h3 class="text-center text-2xl font-extrabold text-red-400">
+        <%= number_with_precision game.execution_time %>
+      </h3>
+    </div>
+  </div>
+

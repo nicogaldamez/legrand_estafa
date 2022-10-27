@@ -1,0 +1,8 @@
+initial_position: [1,1]
+flag_position: [4,1]
+width: 5
+height: 5
+obstacles:
+  - [0,0]
+  - [2,1]
+  - [2,2]
