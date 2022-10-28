@@ -1,8 +1,12 @@
 initial_position: [1,1]
 flag_position: [4,1]
-width: 5
+width: 10
 height: 5
 obstacles:
   - [0,0]
   - [2,1]
   - [2,2]
+  - [4,6]
+  - [3,9]
+  - [0,6]
+  - [1,8]

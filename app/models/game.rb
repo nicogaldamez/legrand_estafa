@@ -12,6 +12,7 @@ class Game
   end
 
   def left
+    @movements += 1
     try_to_move(
       row: @current_position_row,
       col: @current_position_col - 1
@@ -19,6 +20,7 @@ class Game
   end
 
   def right
+    @movements += 1
     try_to_move(
       row: @current_position_row,
       col: @current_position_col + 1
@@ -26,6 +28,7 @@ class Game
   end
 
   def up
+    @movements += 1
     try_to_move(
       row: @current_position_row - 1,
       col: @current_position_col
@@ -33,6 +36,7 @@ class Game
   end
 
   def down
+    @movements += 1
     try_to_move(
       row: @current_position_row + 1,
       col: @current_position_col
@@ -44,11 +48,11 @@ class Game
   end
 
   def move(row, col)
-    puts ''
-    puts "Vuelo a #{[row, col]}"
-    puts ''
-    @current_position_row = row
-    @current_position_col = col
+    @movements += 5
+    try_to_move(
+      row: row,
+      col: col
+    )
   end
 
   def guess(position)
@@ -58,18 +62,13 @@ class Game
   private
 
   def try_to_move(row:, col:)
-    @movements += 1
-
     @situation = @map.move(row: row, col: col)
 
     if @situation.in?([:safe, :win])
       @current_position_row = row
       @current_position_col = col
-      puts "Nueva posición: [#{@current_position_row}, #{@current_position_col}], #{@situation}"
     else
       @killed += 1
-      puts "Muerto: [#{row}, #{col}], #{@situation}"
-      puts ""
     end
 
     @situation

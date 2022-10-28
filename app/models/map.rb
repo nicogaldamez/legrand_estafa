@@ -8,7 +8,6 @@ class Map
     @width            = map_config['width']
     @height           = map_config['height']
     @obstacles        = map_obstacles(map_config['obstacles'])
-    puts @obstacles
   end
 
   def move(row:, col:)

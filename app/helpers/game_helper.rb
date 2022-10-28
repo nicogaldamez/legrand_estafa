@@ -17,9 +17,9 @@ module GameHelper
 
     case [row, col]
     when game.map.initial_position
-      ['bg-red-200', '🏠']
+      ['bg-red-200', '👵']
     when game.map.flag_position
-      ['bg-green-200', '🏁']
+      ['bg-green-200', '💊']
     else
       ['bg-slate-700', '🔘']
     end
